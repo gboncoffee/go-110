@@ -44,22 +44,23 @@ func readBinaryString(prompt string) string {
 }
 
 func applyRule110_chars(bef byte, act byte, aft byte) string {
+    arr := [3]byte{bef, act, aft}
     switch {
-    case '1' == bef && '1' == act && '1' == aft:
+    case [3]byte{'1', '1', '1'} == arr:
         return "0"
-    case '1' == bef && '1' == act && '0' == aft:
+    case [3]byte{'1', '1', '0'} == arr:
         return "1"
-    case '1' == bef && '0' == act && '1' == aft:
+    case [3]byte{'1', '0', '1'} == arr:
         return "1"
-    case '1' == bef && '0' == act && '0' == aft:
+    case [3]byte{'1', '0', '0'} == arr:
         return "0"
-    case '0' == bef && '1' == act && '1' == aft:
+    case [3]byte{'0', '1', '1'} == arr:
         return "1"
-    case '0' == bef && '1' == act && '0' == aft:
+    case [3]byte{'0', '1', '0'} == arr:
         return "1"
-    case '0' == bef && '0' == act && '1' == aft:
+    case [3]byte{'0', '0', '1'} == arr:
         return "1"
-    case '0' == bef && '0' == act && '0' == aft:
+    case [3]byte{'0', '0', '0'} == arr:
         return "0"
     }
 
